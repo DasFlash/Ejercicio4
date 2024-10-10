@@ -18,43 +18,45 @@ public class GuardarAlumnos {
 
                 System.out.print("NIA (número entero): ");
                 int nia = scanner.nextInt();
+                oos.writeInt(nia); // Guardar NIA
                 scanner.nextLine();  // Limpiar el buffer
 
                 System.out.print("Nombre: ");
                 String nombre = scanner.nextLine();
+                oos.writeUTF(nombre); // Guardar nombre
 
                 System.out.print("Apellidos: ");
                 String apellidos = scanner.nextLine();
+                oos.writeUTF(apellidos); // Guardar apellidos
 
                 System.out.print("Género (M/F): ");
                 char genero = scanner.nextLine().charAt(0);
+                oos.writeChar(genero); // Guardar género
 
                 System.out.print("Fecha de nacimiento (dd/MM/yyyy): ");
                 String fechaStr = scanner.nextLine();
+                oos.writeUTF(fechaStr); // Guardar fecha de nacimiento
 
                 System.out.print("Ciclo: ");
                 String ciclo = scanner.nextLine();
+                oos.writeUTF(ciclo); // Guardar ciclo
 
                 System.out.print("Curso: ");
                 String curso = scanner.nextLine();
+                oos.writeUTF(curso); // Guardar curso
 
                 System.out.print("Grupo: ");
                 String grupo = scanner.nextLine();
+                oos.writeUTF(grupo); // Guardar grupo
 
-                // Crear un objeto Alumno
-                Alumno alumno = new Alumno(nia, nombre, apellidos, genero, fechaStr, ciclo, curso, grupo);
-
-                // Escribir el objeto Alumno en el archivo
-                oos.writeObject(alumno);
-
-                System.out.println("Alumno " + (i + 1) + " guardado correctamente.\n");
+                System.out.println("Datos del alumno " + (i + 1) + " guardados correctamente campo por campo.\n");
             }
             System.out.println("Todos los alumnos han sido guardados correctamente en el archivo.");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        scanner.close();
+        scanner.close();;
 
 	}
 
